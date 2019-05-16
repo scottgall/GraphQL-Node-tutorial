@@ -1,2 +1,2 @@
 # GraphQL-Node-tutorial
-Hacker News clone w/ GraphQL API
+[tutorial link](https://www.howtographql.com/graphql-js/0-introduction/)
