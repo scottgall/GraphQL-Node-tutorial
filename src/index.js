@@ -12,6 +12,13 @@ const resolvers = {
     Query: {
         info: () => 'hi betch',
         feed: () => links,
+        link: (parent, args) => {
+            function hasID(obj) {
+                return args.id === obj.id
+            }
+            let index = links.findIndex(hasID);
+            return links[index]
+        }
     },
     Mutation: {
         post: (parent, args) => {
@@ -22,6 +29,9 @@ const resolvers = {
             }
             links.push(link)
             return link
+        },
+        updateLink: (parent, args) => {
+            
         }
     },
 }
