@@ -15,9 +15,9 @@ const resolvers = {
         link: (parent, args) => {
             function hasID(obj) {
                 return args.id === obj.id
-            }
+            };
             let index = links.findIndex(hasID);
-            return links[index]
+            return links[index];
         }
     },
     Mutation: {
@@ -26,12 +26,18 @@ const resolvers = {
                 id: `link-${idCount++}`,
                 description: args.description,
                 url: args.url,
-            }
-            links.push(link)
-            return link
+            };
+            links.push(link);
+            return link;
         },
         updateLink: (parent, args) => {
-            
+            function hasID(obj) {
+                return args.id === obj.id
+            };
+            let index = links.findIndex(hasID);
+            links[index]['url'] = args.url;
+            links[index]['description'] = args.description; 
+            return links[index];          
         }
     },
 }
