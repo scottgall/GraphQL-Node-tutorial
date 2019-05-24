@@ -14,7 +14,7 @@ const resolvers = {
         feed: () => links,
         link: (parent, args) => {
             function hasID(obj) {
-                return args.id === obj.id
+                return args.id === obj.id;
             };
             let index = links.findIndex(hasID);
             return links[index];
@@ -32,12 +32,20 @@ const resolvers = {
         },
         updateLink: (parent, args) => {
             function hasID(obj) {
-                return args.id === obj.id
+                return args.id === obj.id;
             };
             let index = links.findIndex(hasID);
             links[index]['url'] = args.url;
             links[index]['description'] = args.description; 
             return links[index];          
+        },
+        deleteLink: (parent, args) => {
+            function hasID(obj) {
+                return args.id === obj.id;
+            };
+            let index = links.findIndex(hasID);
+            links.splice(index, 1);
+            return links;
         }
     },
 }
