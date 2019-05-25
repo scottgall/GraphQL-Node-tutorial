@@ -30,18 +30,15 @@ const resolvers = {
                 },
                 where: {
                     id: args.id
-                }
+                },
             });
     
         },
-        // deleteLink: (parent, args) => {
-        //     function hasID(obj) {
-        //         return args.id === obj.id;
-        //     };
-        //     let index = links.findIndex(hasID);
-        //     links.splice(index, 1);
-        //     return links;
-        // }
+        deleteLink: (root, args, context) => {
+            return context.prisma.deleteLink({
+                id: args.id
+            });
+        },
     },
 }
 
